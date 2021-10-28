@@ -4,12 +4,13 @@ import "./Questins.css";
 
 const questions = [
   {
-    questionText: "What is the capital of France?",
+    questionText:
+      "Your teacher can post 2 types of questions: short-answer or multiple-choice. For short-answer questions, you enter a response. For multiple-choice questions, you select an option. You can view and answer the questions on the Classwork page or the Stream page??",
     answerOptions: [
-      { answerText: "1. New York", isCorrect: false },
-      { answerText: "2. London", isCorrect: false },
-      { answerText: "3. Paris", isCorrect: true },
-      { answerText: "4. Dublin", isCorrect: false },
+      { answerText: "A. New York", isCorrect: false },
+      { answerText: "B. London", isCorrect: false },
+      { answerText: "C. Paris", isCorrect: true },
+      { answerText: "D. Dublin", isCorrect: false },
     ],
   },
   {
@@ -47,7 +48,7 @@ const Question = () => {
    const [score, setScore] = useState(0);
   
  const handleAnswerOptionClick = (isCorrect) => {
-   document.getElementById("answer-section").style.color = "yellow";
+  //  document.getElementById("answer-section").style.color = "yellow";
    if (isCorrect) {
      setScore(score + 1);
     }
@@ -95,6 +96,11 @@ const Question = () => {
               {questions[currentQuestion].questionText}
             </div>
           </div>
+          <div className="line"></div>
+          <div className="fixed">
+            <h3>Correct Answer</h3>
+          </div>
+
           <div class="answer-section">
             {questions[currentQuestion].answerOptions.map((answerOption) => (
               <button
@@ -105,14 +111,17 @@ const Question = () => {
               </button>
             ))}
           </div>
-          <div className="nextbutton">
-            <button onClick={nextoption}>next</button>
-          </div>
-          <div id="prevbutton">
-            <button onClick={previousoption}>previous</button>
-          </div>
-          <div className="submitbutton">
-            <button onClick={submitoption}>submit</button>
+          <div className="fixed"></div>
+          <div className="buttons">
+            <div id="prevbutton">
+              <button onClick={previousoption}>previous</button>
+            </div>
+            <div className="nextbutton">
+              <button onClick={nextoption}>next</button>
+            </div>
+            <div className="submitbutton">
+              <button onClick={submitoption}>submit</button>
+            </div>
           </div>
         </>
       )}
